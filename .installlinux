@@ -1,0 +1,18 @@
+echo "Note that this will only work if the username is stored in .user (~/.user for standard user)"
+cd /home/$1/mvlinux
+yaourt -S $(cat packages)
+
+echo "May throw errors. Ensuring filesystem is structured properly"
+mkdir ../.i3
+mkdir ../.config
+mkdir ../.config/termite
+mkdir ../.config/ranger
+
+cp i3config ../.i3/config
+cp termiteconfig ../.config/termite/config
+sudo cp rc.conf ../.config/ranger/rc.conf
+cp .xinitrc ../.xinitrc
+cp .bashrc ../.bashrc
+sudo cp -r themes/. /usr/share/themes
+cp -a scripts/. ../
+echo "Success"

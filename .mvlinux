@@ -1,0 +1,13 @@
+sudo rm -rf mvlinux
+mkdir mvlinux
+cp .i3/config mvlinux/i3config
+cp .config/termite/config mvlinux/termiteconfig
+cp .config/ranger/rc.conf mvlinux
+cp .xinitrc mvlinux
+cp .bashrc mvlinux
+sudo cp -r /usr/share/themes mvlinux
+pacman -Qq > mvlinux/packages
+
+mkdir mvlinux/scripts
+echo "Be sure that the list of scripts is updated"
+cp ~/{.fehbg,.installlinux,.matrix,.mvlinux,.pmat,.pmatrix.py,.sshStanford,.syncwc,.vimrc} mvlinux/scripts

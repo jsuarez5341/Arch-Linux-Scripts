@@ -1,0 +1,10 @@
+echo "Cloning local config. Will require local sudo password."
+bash .mvlinux
+echo "Done"
+echo "Copying config to server. Be sure to provide remote user as an argument to this script. This will require local password (write protected config file) and and remote password"
+sudo scp -r ~/mvlinux $(cat .user)@$(cat .wcaddress):~/
+echo "Done"
+echo "ssh run installation script. This will require remote and remote sudo password (copying themes)"
+CMD="bash /home/$1/mvlinux/scripts/.installlinux $1"
+ssh -t $(cat .wcaddress) $CMD
+echo "Done. Provided the installation script returned Success, everything should be configured"

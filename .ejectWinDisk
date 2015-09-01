@@ -1,0 +1,4 @@
+sudo modprobe vboxsf
+sudo umount ArchWinShare
+
+
